@@ -6,6 +6,12 @@ import turtle as trtl
 box = trtl.Turtle()
 lines = trtl.Turtle()
 wn = trtl.Screen()
+Startx = -490
+Starty = -300
+Endx = 490
+Endy = -300
+lines.speed(200)
+scale = 0.7
 
 # Setup Screen
 def setupScreen():
@@ -30,26 +36,72 @@ def setupBox():
 
 # Code for 80 point version goes here
 def v80():
-   lines.goto(-490, -300)
-
-
-
+    global Startx
+    global Starty
+    global Endx
+    global Endy
+    lines.penup()
+    lines.goto(Startx,Starty)
+    lines.pendown()
+    for x in range(50):
+        lines.penup()
+        lines.goto(Endx, Endy)
+        lines.pendown()
+        lines.goto(Startx, Starty)
+        Startx += 19.6
+        Endy += 12.6
 
 # Code for the 90 point version goes here
 def v90():
     # Calling the 80 point function - don't copy-paste from earlier method!!
     v80()
-
-
-
+    global Startx
+    global Starty
+    global Endx
+    global Endy
+    lines.penup()
+    lines.goto(-Startx, Starty)
+    lines.pendown()
+    Endy -= 638
+    for x in range(50):
+        lines.penup()
+        lines.goto(Startx, Starty)
+        lines.pendown()
+        lines.goto(-Endx, Endy)
+        Startx -= 19.6
+        Endy += 12.6
 
 # Code for the 100 point version here
 def v100():
     # Calling the 90 point function - don't copy-paste from earlier method!!
     v90()
-
-
-
+    global Startx
+    global Starty
+    global Endx
+    global Endy
+    lines.penup()
+    lines.goto(Startx, -Starty)
+    lines.pendown()
+    Endy -= 630
+    Starty += 630
+    for x in range(50):
+        lines.penup()
+        lines.goto(Startx, Starty)
+        lines.pendown()
+        lines.goto(Endx, -Endy)
+        Startx += 19.6
+        Endy += 12.6
+    lines.penup()
+    lines.goto(-Startx, Starty)
+    lines.pendown()
+    Endy -= 630
+    for x in range(50):
+        lines.penup()
+        lines.goto(Startx, Starty)
+        lines.pendown()
+        lines.goto(-Endx, -Endy)
+        Startx -= 19.6
+        Endy += 12.6
 
 # Code for the 110 point version here
 def v110():
@@ -57,9 +109,11 @@ def v110():
     v100()
 
 
+
+
 setupScreen()
 setupBox()
-
+v110()
 
 
 
