@@ -10,8 +10,7 @@ Startx = -490
 Starty = -300
 Endx = 490
 Endy = -300
-lines.speed(200)
-scale = 0.7
+lines.speed(400)
 
 # Setup Screen
 def setupScreen():
@@ -104,12 +103,63 @@ def v100():
         Endy += 12.6
 
 # Code for the 110 point version here
+
+Startx2 = -245
+Starty2 = -142.5
+Endx2 = 245
+Endy2 = -142.5
 def v110():
     # Calling the 100 point function - don't copy-paste from earlier method!!
     v100()
-
-
-
+    global Startx2
+    global Starty2
+    global Endx2
+    global Endy2
+    lines.penup()
+    lines.goto(Startx2, Starty2)
+    lines.pendown()
+    for x in range(50):
+        lines.penup()
+        lines.goto(Endx2, Endy2)
+        lines.pendown()
+        lines.goto(Startx2, Starty2)
+        Startx2 += 9.8
+        Endy2 += 6.15
+    lines.goto(Startx2, Starty2)
+    lines.penup()
+    lines.goto(-Startx2, Starty2)
+    lines.pendown()
+    Endy2 -= 307.5
+    for x in range(50):
+        lines.penup()
+        lines.goto(Startx2, Starty2)
+        lines.pendown()
+        lines.goto(-Endx2, Endy2)
+        Startx2 -= 9.8
+        Endy2 += 6.15
+    lines.penup()
+    lines.goto(Startx2, -Starty2)
+    lines.pendown()
+    Endy2 -= 329
+    Starty2 += 307.5
+    for x in range(50):
+        lines.penup()
+        lines.goto(Startx2, Starty2)
+        lines.pendown()
+        lines.goto(Endx2, -Endy2)
+        Startx2 += 9.8
+        Endy2 += 6.15
+    lines.penup()
+    lines.goto(-Startx2, Starty2)
+    lines.pendown()
+    Endy2 -= 307.5
+    for x in range(50):
+        lines.penup()
+        lines.goto(Startx2, Starty2)
+        lines.pendown()
+        lines.goto(-Endx2, -Endy2)
+        Startx2 -= 9.8
+        Endy2 += 6.15
 
 setupScreen()
 setupBox()
